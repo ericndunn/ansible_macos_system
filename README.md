@@ -5,7 +5,7 @@ This role will query Jenkins file system for files by date and size
 
 Assumptions
 ------------
-- ssh key copied to servername as jenkins user
+- ssh key copied to servername as *jenkins* user
 	- ssh-copy-id jenkins@servername
 
 Requirements
