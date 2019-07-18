@@ -1,6 +1,7 @@
 pipeline {
     agent { label 'MASTER' }
         parameters {
+            string(defaultValue: "MY USER ID", description: 'USER ID', name: 'MY_USERID')
             string(defaultValue: "/Users/jenkins/.jenkins/jobs", description: 'Path to Jenkins Jobs', name: 'FILES_PATH')
             string(defaultValue: "4w", description: 'EXAMPLE: 4w 3d etc', name: 'FILES_AGE')
             string(defaultValue: "100m", description: 'EXAMPLE: 100m 2000m', name: 'FILES_SIZE')      
