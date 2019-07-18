@@ -1,0 +1,13 @@
+---
+- hosts: "JENKINS"
+  remote_user: jenkins
+  gather_facts: true
+  roles: [ansible_macos_query]
+  vars: 
+  vars_files: [ansible_macos_query/vars/main.yml] 
+ 
+   
+
+
+
+  

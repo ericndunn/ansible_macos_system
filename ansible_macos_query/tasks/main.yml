@@ -1,0 +1,5 @@
+---
+# tasks file for ansible_macos
+- include_tasks: ansible_macos_query.yml
+
+

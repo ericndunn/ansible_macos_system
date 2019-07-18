@@ -1,0 +1,36 @@
+# - setup:
+#   register: my_setup
+# - debug:
+#     msg: "{{ my_setup }}"
+
+# - name: Find big files
+#   shell: >
+#     /usr/bin/find /Users/jenkins/.jenkins/jobs -type f -size +100M -exec ls -lh {} \; |
+#     awk '{ print $9 ": " $5 }'
+#   args:
+#     executable: /bin/bash
+#   register: find_big_files_shell
+  
+# - debug:
+#     msg: "{{ find_big_files_shell.stdout_lines }}" 
+
+- name: "Recursively find {{ files_path }}/files older than {{ files_age }}eeks and equal or greater than {{ files_size }} (megabyte)"
+  find:
+    paths: "{{ files_path }}"
+    age: "{{ files_age }}"
+    size: "{{ files_size }}"
+    recurse: yes
+  register: find_big_old_files    
+
+# - debug:
+#     msg: "{{ find_big_old_files }}" 
+
+- name: "DEBUG: Recursively find {{ files_path }}/files older than {{ files_age }}eeks and equal or greater than {{ files_size }} (megabyte)"
+  debug:
+    msg: "{{ ansible_hostname }} path: {{ item.0 }} MB size: {{ item.1/1000000 }}"
+  with_together:
+    - "{{ find_big_old_files.files | json_query('[].path[]') | list }}"
+    - "{{ find_big_old_files.files | json_query('[].size[]') | list }}" 
+
+
+ 

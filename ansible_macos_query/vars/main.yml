@@ -1,0 +1,5 @@
+---
+# vars file for ansible_macos_query
+files_path: /Users/jenkins/.jenkins/jobs #Jenkins var {{ lookup('env','FILES_PATH') }}
+files_age: 4w  #Jenkins var {{ lookup('env','FILES_AGE') }}
+files_size: 100m #Jenkins var {{ lookup('env','FILES_SIZE') }}
