@@ -41,8 +41,8 @@ Dependencies
 Example Playbook
 ----------------
 - TERMINAL METHOD: cd to dir where ansible_macos.yml is located on local
-- ansible-playbook -i macos_inventory --ask-pass ansible_macos.yml 
-	NOTE: When prompted, enter ssh keygen password
+    - ansible-playbook -i macos_inventory --ask-pass ansible_macos.yml -e "files_path=/Users/jenkins/.jenkins/jobs files_age=4w files_size=100m"
+        NOTE: When prompted, enter ssh keygen password
 
 License
 -------
