@@ -40,7 +40,7 @@ Dependencies
 
 Example Playbook
 ----------------
-- cd to dir where ansible_macos.yml is located on local
+- TERMINAL METHOD: cd to dir where ansible_macos.yml is located on local
 - ansible-playbook -i macos_inventory --ask-pass ansible_macos.yml 
 	NOTE: When prompted, enter ssh keygen password
 
