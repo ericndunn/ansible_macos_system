@@ -5,7 +5,7 @@ This role will query Jenkins file system for files by date and size
 
 Assumptions
 ------------
-- ssh key copied to servername as jenkins user
+- ssh key copied to servername as *jenkins* user
 	- ssh-copy-id jenkins@servername
 
 Requirements
@@ -25,11 +25,11 @@ Requirements
 
 Role Variables
 --------------
-NOTE: All vars can be overdden on commandline or Jenkins
+- NOTE: All vars can be overdden on commandline or Jenkins
 
-files_path: /Users/jenkins/.jenkins/jobs #Jenkins var {{ lookup('env','FILES_PATH') }}
-files_age: 4w  #Jenkins var {{ lookup('env','FILES_AGE') }}
-files_size: 100m #Jenkins var {{ lookup('env','FILES_SIZE') }}
+- files_path: /Users/jenkins/.jenkins/jobs #Jenkins var {{ lookup('env','FILES_PATH') }}
+- files_age: 4w  #Jenkins var {{ lookup('env','FILES_AGE') }}
+- files_size: 100m #Jenkins var {{ lookup('env','FILES_SIZE') }}
 
 Dependencies
 ------------
@@ -41,8 +41,8 @@ Dependencies
 Example Playbook
 ----------------
 - TERMINAL METHOD: cd to dir where ansible_macos.yml is located on local
-- ansible-playbook -i macos_inventory --ask-pass ansible_macos.yml 
-	NOTE: When prompted, enter ssh keygen password
+    - ansible-playbook -i macos_inventory --ask-pass ansible_macos.yml -e "files_path=/Users/jenkins/.jenkins/jobs files_age=4w files_size=100m"
+    - NOTE: When prompted, enter ssh keygen password
 
 License
 -------
